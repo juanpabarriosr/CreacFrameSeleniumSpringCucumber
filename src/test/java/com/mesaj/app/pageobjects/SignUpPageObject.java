@@ -59,7 +59,7 @@ public class SignUpPageObject {
         this.driver.findElement(this.genderFemale).click();
     }
     public void selectCountry(String country) {
-        new Select(this.driver.findElement(this.genderFemale)).selectByValue(country);
+        new Select(this.driver.findElement(this.country)).selectByValue(country);
     }
     public void selectBirthDay(String day) {
         new Select(this.driver.findElement(this.dateOfBirthDay)).selectByValue(day);
