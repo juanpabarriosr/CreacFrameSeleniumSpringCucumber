@@ -1,6 +1,6 @@
 package com.mesaj.app.stepdefinitions;
 
-import com.mesaj.app.pageobjects.SignUpPageObject;
+import com.mesaj.app.pageobjects.SignUpServices;
 import com.mesaj.app.util.RandomNumberGenerator;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -17,21 +17,21 @@ public class SignUpStepDefs {
 
         WebDriver driver = new ChromeDriver();
 
-        SignUpPageObject signUpPageObject = new SignUpPageObject(driver);
-        signUpPageObject.go("http://demo.automationtesting.in/Register.html");
-        signUpPageObject.writeFirstname("Pepito");
-        signUpPageObject.writeLastName("Perez");
-        signUpPageObject.writeEmail("perez@gmail.com");
-        signUpPageObject.selectMale();
-        signUpPageObject.selectCountry("Colombia");
-        signUpPageObject.selectBirthDay("10");
-        signUpPageObject.selectBirthMonth("February");
-        signUpPageObject.selectBirthYear("1989");
-        signUpPageObject.writePhone(RandomNumberGenerator.get());
-        signUpPageObject.writePassword("A_x?a1989");
-        signUpPageObject.writeConfirmPassword("A_x?a1989");
+        SignUpServices signUpServices = new SignUpServices(driver);
+        signUpServices.go("http://demo.automationtesting.in/Register.html");
+        signUpServices.writeFirstname("Pepito");
+        signUpServices.writeLastName("Perez");
+        signUpServices.writeEmail("perez@gmail.com");
+        signUpServices.selectMale();
+        signUpServices.selectCountry("Colombia");
+        signUpServices.selectBirthDay("10");
+        signUpServices.selectBirthMonth("February");
+        signUpServices.selectBirthYear("1989");
+        signUpServices.writePhone(RandomNumberGenerator.get());
+        signUpServices.writePassword("A_x?a1989");
+        signUpServices.writeConfirmPassword("A_x?a1989");
 
-        signUpPageObject.clickOnSubmit();
+        signUpServices.clickOnSubmit();
 
         Thread.sleep(8000);
         driver.quit();
