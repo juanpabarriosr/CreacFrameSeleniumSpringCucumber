@@ -1,41 +1,53 @@
 package com.mesaj.app.pageobjects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class SignUpPageObject {
 
-    private WebDriver driver;
-
     public SignUpPageObject(WebDriver driver){
-        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
-    private By firstNameTexbox = By.xpath("//input[@placeholder='First Name']");
+    @FindBy(xpath = "//input[@placeholder='First Name']")
+    private WebElement firstNameTexbox;
 
-    private By lastName = By.xpath("//input[@placeholder='Last Name']");
+    @FindBy(xpath = "//input[@placeholder='Last Name']")
+    private WebElement lastName;
 
-    private By emailAddress = By.xpath("//input[@type='email']");
+    @FindBy(xpath = "//input[@type='email']")
+    private WebElement emailAddress;
 
-    private By phone = By.xpath("//input[@type='tel']");
+    @FindBy(xpath = "//input[@type='tel']")
+    private WebElement phone;
 
-    private By genderMale = By.xpath("//input[@value='Male']");
+    @FindBy(xpath = "//input[@value='Male']")
+    private WebElement genderMale;
 
-    private By genderFemale = By.xpath("//input[@value='FeMale']");
+    @FindBy(xpath = "//input[@value='FeMale']")
+    private WebElement genderFemale;
 
-    private By country = By.id("countries");
+    @FindBy(id = "countries")
+    private WebElement country;
 
-    private By dateOfBirthYear = By.xpath("//select[@id='yearbox']");
+    @FindBy(id = "yearbox")
+    private WebElement dateOfBirthYear;
 
-    private By dateOfBirthMonth = By.xpath("//select[@placeholder='Month']");
+    @FindBy(xpath = "//select[@placeholder='Month']")
+    private WebElement dateOfBirthMonth;
 
-    private By dateOfBirthDay = By.xpath("//select[@id='daybox']");
+    @FindBy(id = "daybox")
+    private WebElement dateOfBirthDay;
 
-    private By password = By.xpath("//input[@id='firstpassword']");
+    @FindBy(id = "firstpassword")
+    private WebElement password;
 
-    private By confirmPassword = By.xpath("//input[@id='secondpassword']");
+    @FindBy(id = "secondpassword")
+    private WebElement confirmPassword;
 
-    private By submit = By.xpath("//button[@id='submitbtn']");
+    @FindBy(id = "submitbtn")
+    private WebElement submit;
 
 }
