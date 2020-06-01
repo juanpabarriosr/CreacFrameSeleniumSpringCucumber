@@ -1,34 +1,39 @@
 package com.mesaj.app.stepdefinitions;
 
-import com.mesaj.app.HookDriver;
+import com.mesaj.app.conf.DriverConfig;
 import com.mesaj.app.pageobjects.SignUpServices;
 import com.mesaj.app.util.RandomNumberGenerator;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
 
+@ContextConfiguration(classes = {DriverConfig.class})
 public class SignUpStepDefs {
-
+    
+    @Autowired
+    private SignUpServices signUp;
+    
     @Given("^Pepito wants to have an account$")
     public void pepito_wants_to_have_an_account() throws InterruptedException {
 
-        SignUpServices signUpServices = new SignUpServices(HookDriver.driver);
-        signUpServices.go("http://demo.automationtesting.in/Register.html");
-        signUpServices.writeFirstname("Pepito");
-        signUpServices.writeLastName("Perez");
-        signUpServices.writeEmail("perez@gmail.com");
-        signUpServices.selectMale();
-        signUpServices.selectCountry("Colombia");
-        signUpServices.selectBirthDay("10");
-        signUpServices.selectBirthMonth("February");
-        signUpServices.selectBirthYear("1989");
-        signUpServices.writePhone(RandomNumberGenerator.get());
-        signUpServices.writePassword("A_x?a1989");
-        signUpServices.writeConfirmPassword("A_x?a1989");
+        signUp.go("http://demo.automationtesting.in/Register.html");
+        signUp.writeFirstname("Pepito");
+        signUp.writeLastName("Perez");
+        signUp.writeEmail("perez@gmail.com");
+        signUp.selectMale();
+        signUp.selectCountry("Colombia");
+        signUp.selectBirthDay("10");
+        signUp.selectBirthMonth("February");
+        signUp.selectBirthYear("1989");
+        signUp.writePhone(RandomNumberGenerator.get());
+        signUp.writePassword("A_x?a1989");
+        signUp.writeConfirmPassword("A_x?a1989");
 
-        signUpServices.clickOnSubmit();
+        signUp.clickOnSubmit();
 
-        Thread.sleep(8000);
+        Thread.sleep(12000);
     }
 
     @When("^he sends required information to get the account$")
