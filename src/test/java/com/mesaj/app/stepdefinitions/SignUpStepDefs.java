@@ -1,23 +1,18 @@
 package com.mesaj.app.stepdefinitions;
 
+import com.mesaj.app.HookDriver;
 import com.mesaj.app.pageobjects.SignUpServices;
 import com.mesaj.app.util.RandomNumberGenerator;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SignUpStepDefs {
 
     @Given("^Pepito wants to have an account$")
     public void pepito_wants_to_have_an_account() throws InterruptedException {
 
-        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/test/resources/drivers/windows/chromedriver.exe");
-
-        WebDriver driver = new ChromeDriver();
-
-        SignUpServices signUpServices = new SignUpServices(driver);
+        SignUpServices signUpServices = new SignUpServices(HookDriver.driver);
         signUpServices.go("http://demo.automationtesting.in/Register.html");
         signUpServices.writeFirstname("Pepito");
         signUpServices.writeLastName("Perez");
@@ -34,7 +29,6 @@ public class SignUpStepDefs {
         signUpServices.clickOnSubmit();
 
         Thread.sleep(8000);
-        driver.quit();
     }
 
     @When("^he sends required information to get the account$")
