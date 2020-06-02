@@ -23,7 +23,7 @@ public class SignUpStepDefs {
     public void pepito_wants_to_have_an_account() throws InterruptedException {
 
         signUp.go(url);
-        signUp.writeFirstname("Pepito");
+        signUp.writeFirstName("Pepito");
         signUp.writeLastName("Perez");
         signUp.writeEmail("perez@gmail.com");
         signUp.selectMale();
