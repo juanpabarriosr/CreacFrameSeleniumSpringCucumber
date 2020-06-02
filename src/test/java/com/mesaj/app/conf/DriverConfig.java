@@ -12,9 +12,12 @@ import org.springframework.context.annotation.PropertySource;
 
 import java.time.Duration;
 
+//Para ejecutar en maven:
+// mvn clean test -Denviroment=dev
+//mvn clean test -Denviroment=prod
 @Configuration
 @ComponentScan(basePackages = "com.mesaj.app")
-@PropertySource("classpath:/application.properties")
+@PropertySource("classpath:/application-${enviroment:dev}.properties")  //:dev - Indica entorno por defecto
 public class DriverConfig {
 
     @Value("${driver.type}")
