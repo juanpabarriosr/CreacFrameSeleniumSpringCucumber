@@ -37,7 +37,7 @@ public class SignUpStepDefs {
                         .withoutEmail()
                         .build()
         );
-        Thread.sleep(5000);
+        Thread.sleep(8000);
     }
 
     @Then("^he should be told that the account was created$")

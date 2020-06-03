@@ -1,5 +1,6 @@
 package com.mesaj.app.pageobjects;
 
+import com.mesaj.app.enums.Gender;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -35,10 +36,10 @@ public class SignUpServices {
     public void writePhone(String phone) {
         this.signUpPageObject.getPhone().sendKeys(phone);
     }
-    public void selectMale() {
+    private void selectMale() {
         this.signUpPageObject.getGenderMale().click();
     }
-    public void selectFemale() {
+    private void selectFemale() {
         this.signUpPageObject.getGenderFemale().click();
     }
     public void selectCountry(String country) {
@@ -61,5 +62,13 @@ public class SignUpServices {
     }
     public void clickOnSubmit() {
         this.signUpPageObject.getSubmit().click();
+    }
+
+    public void selectGender(Gender gender){
+        if (gender == Gender.female){
+            selectFemale();
+        } else {
+            selectMale();
+        }
     }
 }

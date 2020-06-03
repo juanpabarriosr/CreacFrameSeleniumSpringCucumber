@@ -8,6 +8,10 @@ public class UserBuilder {
 
     private User user;
 
+    private UserBuilder() {
+        user = User.builder().build();
+    }
+
     public static UserBuilder anUser(){
         return new UserBuilder();
     }
@@ -33,12 +37,12 @@ public class UserBuilder {
     }
 
     public UserBuilder withoutEmail(){
-        but().user.setEmail("");
+        user.setEmail("");
         return this;
     }
 
     public UserBuilder withoutBirthDay(){
-        but().user.setBirthDay("");
+        user.setBirthDay("");
         return this;
     }
 
