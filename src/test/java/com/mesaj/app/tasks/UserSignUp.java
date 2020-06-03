@@ -27,6 +27,6 @@ public class UserSignUp {
         signUp.writePassword(user.getPassword());
         signUp.writeConfirmPassword(user.getPasswordConfirmation());
 
-        //signUp.clickOnSubmit();
+        signUp.clickOnSubmit();
     }
 }
